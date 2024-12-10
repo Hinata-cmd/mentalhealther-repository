@@ -7,10 +7,41 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Age;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    public function age()
+    {
+        return $this->belongsTo(Age::class);
+    }
+
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function message()
+    {
+        return $this->hasMany(Message::class);
+    }
+
+    public function area_user()
+    {
+        return $this->hasMany(Area_user::class);
+    }
+
+    public function condition_user()
+    {
+        return $this->hasMany(Condition_user::class);
+    }
+
+    public function follower()
+    {
+        return $this->hasMany(Follower::class);
+    }
 
     /**
      * The attributes that are mass assignable.
