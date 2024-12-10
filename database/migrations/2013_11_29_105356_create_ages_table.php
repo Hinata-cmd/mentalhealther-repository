@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('ages', function (Blueprint $table) {
             $table->id();
             $table->string('range');
-            $table->timestamps();
         });
     }
 

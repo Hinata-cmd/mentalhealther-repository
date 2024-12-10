@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('supporters', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('work_id')->constrained()->onDelete('cascade');
             $table->foreignId('area_id')->constrained()->onDelete('cascade');
             $table->foreignId('condition_id')->constrained()->onDelete('cascade');

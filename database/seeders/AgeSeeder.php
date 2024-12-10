@@ -14,7 +14,28 @@ class AgeSeeder extends Seeder
     public function run(): void
     {
         DB::table('ages')->insert([
-            'range' => '年齢'
+            'id' => 1,
+            'range' => '20~30歳',
+        ]);
+
+        DB::table('ages')->insert([
+            'id' => 2,
+            'range' => '31~40歳',
+        ]);
+
+        DB::table('ages')->insert([
+            'id' => 3,
+            'range' => '41~50歳',
+        ]);
+
+        DB::table('ages')->insert([
+            'id' => 4,
+            'range' => '51~60歳',
+        ]);
+
+        DB::table('ages')->insert([
+            'id' => 5,
+            'range' => '61歳~',
         ]);
     }
 }

@@ -15,9 +15,9 @@ class PostSeeder extends Seeder
     public function run(): void
     {
        DB::table('posts')->insert([
-            'user_id' => 'ユーザー名',
-            'body' => '内容',
-            'photo' => '写真',
+            'user_id' => 1, //usersテーブルで登録したidをしまう
+            'body' => '内容',  
+            'photo' => '',  //urlをしまう
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
        ]);
