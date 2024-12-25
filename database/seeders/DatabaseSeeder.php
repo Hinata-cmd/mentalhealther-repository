@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        //\App\Models\User::factory(10)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
@@ -24,6 +24,14 @@ class DatabaseSeeder extends Seeder
             AgeSeeder::class,
             UserSeeder::class,
             PostSeeder::class,
+            LikeSeeder::class,
+            AreaSeeder::class,
+            Area_userSeeder::class,
+            ConditionSeeder::class,
+            Condition_userSeeder::class,
+            WorkSeeder::class,
+            SupporterSeeder::class,
+            FollowerSeeder::class,
         ]);
     }
 }
