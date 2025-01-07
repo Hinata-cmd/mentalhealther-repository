@@ -16,5 +16,21 @@ class WorkSeeder extends Seeder
         DB::table('works')->insert([
             'name' => '精神科医',
         ]);
+
+        DB::table('works')->insert([
+            'name' => '公認心理士',
+        ]);
+
+        DB::table('works')->insert([
+            'name' => '臨床心理士',
+        ]);
+
+        DB::table('works')->insert([
+            'name' => '介護福祉士',
+        ]);
+
+        DB::table('works')->insert([
+            'name' => 'その他',
+        ]);
     }
 }

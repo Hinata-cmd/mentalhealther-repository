@@ -5,12 +5,25 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Cloudinary;
 use Carbon\Carbon;
+use App\Models\User;
 
 class PostController extends Controller
 {
-    public function index(Post $post)
+    public function index(Post $post, User $user, Request $request)
     {
-        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(5)]);
+        /* テーブルから全てのレコードを取得する */
+        $query = User::query();
+
+        /* キーワードから検索処理 */
+        $keyword = $request->input('keyword');
+        if(!empty($keyword)) {//$keyword　が空ではない場合、検索処理を実行します
+            $query->where('name', 'LIKE', "%{$keyword}%");
+            $users = $query->get();
+        } else {
+            $users = $user->get();
+        }
+        // dd($users);
+        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(5), 'users' => $users]);
     }
 
     public function show(Post $post)

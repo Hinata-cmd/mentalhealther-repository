@@ -49,6 +49,12 @@ class User extends Authenticatable
         return $this->hasMany(Follower::class);
     }
 
+    public function users()
+    {
+        $users = Users::all();
+        return view('posts.index')->with('users', $users);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
