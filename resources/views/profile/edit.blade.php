@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    @if(Auth::user()->type === 1)
+    @if(Auth::user()->type === 0)
     <div class="support">
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
@@ -19,21 +19,21 @@
                             <div>
                                 <x-input-label for="work" :value="__('職種')" />
                                 @foreach($works as $work)
-                                <input type="checkbox" name="work" value="{{ $work->id }}"> {{ $work->name }}
+                                <input type="checkbox" name="supporter[work_id]" value="{{ $work->id }}"> {{ $work->name }}
                                 @endforeach
                             </div>
 
                             <div>
                                 <x-input-label for="area" :value="__('エリア')" />
                                 @foreach($areas as $area)
-                                <input type="checkbox" name="area" value="{{ $area->id }}"> {{ $area->name }}
+                                <input type="checkbox" name="supporter[area_id]" value="{{ $area->id }}"> {{ $area->name }}
                                 @endforeach
                             </div>
 
                             <div>
                                 <x-input-label for="condition" :value="__('条件')" />
                                 @foreach($conditions as $condition)
-                                <input type="checkbox" name="condition" value="{{ $condition->id }}"> {{ $condition->name }}
+                                <input type="checkbox" name="supporter[condition_id]" value="{{ $condition->id }}"> {{ $condition->name }}
                                 @endforeach
                             </div>
                             <x-primary-button>{{ __('Save') }}</x-primary-button>

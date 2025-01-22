@@ -14,6 +14,7 @@ class Supporter extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'work_id',
         'condition_id',
         'area_id',

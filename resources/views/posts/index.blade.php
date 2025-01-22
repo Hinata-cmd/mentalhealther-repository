@@ -9,7 +9,7 @@
                 <input type="submit" value="検索">
             </form>
         </div>
-        <div class="dropdown-item" href="{{ route('profile') }}">
+        <div class="dropdown-item" href="{{ route('profile.edit') }}">
             <a href="/profile">
                 プロフィール編集
             </a>
@@ -37,9 +37,9 @@
                         <div class='post'>
                             <p>
                                 {{ $post->user->name }} 
-                                @if ($post->user->type == 1)
+                                @if ($post->user->type == 0)
                                     患者側
-                                @else ($post->user->type == 0)
+                                @else ($post->user->type == 1)
                                     サポーター側
                                 @endif
                             </p>

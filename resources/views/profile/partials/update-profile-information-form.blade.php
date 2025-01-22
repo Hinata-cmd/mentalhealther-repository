@@ -62,7 +62,7 @@
         </div>
 
         <div>
-            @if(Auth::user()->type === 0)
+            @if(Auth::user()->type === 1)
                 患者
             @else
                 サポーター

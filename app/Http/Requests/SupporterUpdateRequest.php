@@ -14,9 +14,9 @@ class SupporterUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'area_id' => ['required'],
-            'work_id' => ['required'],
-            'condition_id' => ['required'],
+            'supporter.area_id' => ['required'],
+            'supporter.work_id' => ['required'],
+            'supporter.condition_id' => ['required'],
         ];
     }
 }

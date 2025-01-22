@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-             // `image`カラムのデフォルト値を変更
-              $table->string('image')->default('/image/icon.png')->change(); });
+        Schema::create('user_work', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('work_id')->constrained()->onDelete('cascade');
+            $table->primary(['user_id','work_id']);
+        });
     }
 
     /**
@@ -21,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('user_work');
     }
 };

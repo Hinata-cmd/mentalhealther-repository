@@ -25,7 +25,7 @@
                                 @endif
                             </td>
                             <td>
-                                @if(Auth::user()->type === 0)
+                                @if(Auth::user()->type === 1)
                                     患者
                                 @else
                                     サポーター
@@ -35,22 +35,22 @@
                         <tr>
                             <td></td>
                             <td>
-                                @if(Auth::user()->supporter->works !== null)
-                                    @foreach(Auth::user()->supporter->works as $work)
+                                @if($user?->works !== null)
+                                    @foreach($user->works as $work)
                                     {{ $work->name }}
                                     @endforeach
                                 @endif
                             </td>
                             <td>
-                                @if(Auth::user()->supporter->areas)
-                                    @foreach(Auth::user()->supporter->areas as $area)
+                                @if($user?->areas !== null)
+                                    @foreach($user->areas as $area)
                                     {{ $area->name }}
                                     @endforeach
                                 @endif
                             </td>
                             <td>
-                                @if(Auth::user()->supporter->conditions)
-                                    @foreach(Auth::user()->supporter->conditions as $condition)
+                                @if($user?->conditions !== null)
+                                    @foreach($user->conditions as $condition)
                                     {{ $condition->name }}
                                     @endforeach
                                 @endif

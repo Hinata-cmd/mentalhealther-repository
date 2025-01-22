@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\controllers\PostController;
 use App\Http\controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +18,13 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $user=Auth::user();
+    return view('dashboard')->with(['user' => $user]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/',[PostController::class, 'index'])->name('post.index');
 Route::get('/posts/create', [PostController::class, 'create']);
-Route::get('/posts/{post}', [PostController::class ,'show']);
+Route::get('/posts/{post}', [PostController::class, 'show']);
 Route::post('/posts', [PostController::class, 'store']);
 
 Route::get('/user/index', [UserController::class, 'index']);
@@ -33,6 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile/supporter', [ProfileController::class, 'supporterUpdate'])->name('profile.supporter');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::post('/post/like', [LikeController::class, 'likePost']);
 
 // Route::group(['middleware' => 'auth'], function (){
 //     Route::get('/profile', [UserController::class, 'show'])->name('profile');

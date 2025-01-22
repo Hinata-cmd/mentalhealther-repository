@@ -49,19 +49,14 @@ class ProfileController extends Controller
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
-    public function supporterUpdate(SupporterUpdateRequest $request, Suppoter $supporter): RedirectResponse
+    public function supporterUpdate(Request $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
-        $supporter->user_id=Auth::id();
-        $supporter->area_id=$request->area;
-        $supporter->work_id=$request->work;
-        $supporter->condition_id=$request->condition;
-        $supporter->works()->attach($request->work_id);
-        $supporter->areas()->attach($request->area_id);
-        $supporter->conditions()->attach($request->condition_id);
-
-        $supporter->supporter()->save();
-
+        // $request->user()->fill($request->validated());
+        $user=Auth::user();
+        $user->works()->attach($request->supporter['work_id']);
+        $user->areas()->attach($request->supporter['area_id']);
+        $user->conditions()->attach($request->supporter['condition_id']);
+        
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
