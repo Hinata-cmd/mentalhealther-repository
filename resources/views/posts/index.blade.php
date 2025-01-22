@@ -2,6 +2,32 @@
         <h1>Mentalhealther</h1>
         <h2>Posts</h2>
         <a href='/posts/create'>create posts</a>
+        <div>
+            <form action="{{ route('post.index') }}" method="GET">
+                @csrf
+                <input type="text" name="keyword">
+                <input type="submit" value="検索">
+            </form>
+        </div>
+        <div class="dropdown-item" href="{{ route('profile.edit') }}">
+            <a href="/profile">
+                プロフィール編集
+            </a>
+        </div>
+        <div class="table-responsive">
+            <table class="table" style="width :1000px; max-width: 0 auto;">
+                <tr class="table-info">
+                    <th></th>
+                    <th scope="col">ユーザー名</th>
+                </tr>
+                @foreach($users as $user)
+                <tr>
+                    <td><img style="width:80px;" src="{{ $user->image ? asset($user->image) : asset('/image/icon.png')  }}"></td>
+                    <td>{{ $user->name }}</td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
         <div class='posts'>
             @foreach($posts as $post)
             <div class="py-12">
@@ -11,12 +37,11 @@
                         <div class='post'>
                             <p>
                                 {{ $post->user->name }} 
-                                @if ($post->user->type == 1)
+                                @if ($post->user->type == 0)
                                     患者側
-                                @else ($post->user->type == 0)
+                                @else ($post->user->type == 1)
                                     サポーター側
                                 @endif
-
                             </p>
                             <h3 class='body'>
                                 <a href="/posts/{{ $post->id }}">{{ $post->body }}</a>

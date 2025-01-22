@@ -9,6 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Supporter;
 use App\Models\Age;
+use App\Models\Post;
+use App\Models\Area;
+use App\Models\Work;
+use App\Models\Condition;
 
 class User extends Authenticatable
 {
@@ -34,19 +38,30 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
-    public function area_user()
+    public function areas()
     {
-        return $this->hasMany(Area_user::class);
+        return $this->belongsToMany(Area::class);
     }
 
-    public function condition_user()
+    public function conditions()
     {
-        return $this->hasMany(Condition_user::class);
+        return $this->belongsToMany(Condition::class);
+    }
+
+    public function works()
+    {
+        return $this->belongsToMany(Work::class, 'user_work');
     }
 
     public function follower()
     {
         return $this->hasMany(Follower::class);
+    }
+
+    public function users()
+    {
+        $users = Users::all();
+        return view('posts.index')->with('users', $users);
     }
 
     /**

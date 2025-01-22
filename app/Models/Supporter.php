@@ -13,23 +13,30 @@ class Supporter extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'work_id',
+        'condition_id',
+        'area_id',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function work()
+    public function works()
     {
-        return $this->belongsTo(Work::class);
+        return $this->hasMany(Work::class);
     }
 
-    public function area()
+    public function areas()
     {
-        return $this->belongsTo(Area::class);
+        return $this->hasMany(Area::class);
     }
 
-    public function condition()
+    public function conditions()
     {
-        return $this->belongsTo(Condition::class);
+        return $this->hasMany(Condition::class);
     }
 }

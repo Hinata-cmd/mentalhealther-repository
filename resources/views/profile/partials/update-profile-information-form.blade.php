@@ -47,6 +47,28 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="age" :value="__('年齢')" />
+            @foreach($ages as $age)
+            <input type="radio" name="age_id" value="{{ $age->id }}"> {{ $age->range }}
+            @endforeach
+        </div>
+
+        <div>
+            <x-input-label for="sex" :value="__('性別')" />
+            <input type="radio" name="sex" value="0"> 男
+            <input type="radio" name="sex" value="1"> 女
+            <input type="radio" name="sex" value="2"> その他
+        </div>
+
+        <div>
+            @if(Auth::user()->type === 1)
+                患者
+            @else
+                サポーター
+            @endif
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
