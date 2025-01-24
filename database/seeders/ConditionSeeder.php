@@ -13,16 +13,49 @@ class ConditionSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('conditions')->insert([
-            'name' => '診断・カウンセリング受付中',
-            'name' => 'DM相談OK',
-            'name' => '顔出しなしOK',
-            'name' => '傾聴中心',
-            'name' => 'アドバイス中心',
-            'name' => 'オンライン対応可',
-            'name' => '学生向け相談',
-            'name' => '来院予約可',
-            'name' => '発信専用アカウント',
-        ]);
+            DB::table('conditions')->insert([
+                'id' => 1,
+                'name' => '診断・カウンセリング受付中',
+            ]);
+
+            DB::table('conditions')->insert([
+                'id' => 2,
+                'name' => 'DM相談OK',
+            ]);
+            
+            DB::table('conditions')->insert([
+                'id' => 3,
+                'name' => '顔出しなしOK',
+            ]);
+            
+            DB::table('conditions')->insert([
+                'id' => 4,
+                'name' => '傾聴中心',
+            ]);
+
+            DB::table('conditions')->insert([
+                'id' => 5,
+                'name' => 'アドバイス中心',
+            ]);
+
+            DB::table('conditions')->insert([
+                'id' => 6,
+                'name' => 'オンライン対応可',
+            ]);
+            
+            DB::table('conditions')->insert([
+                'id' => 7,
+                'name' => '学生向け相談',
+            ]);
+
+            DB::table('conditions')->insert([
+                'id' => 8,
+                'name' => '来院予約可',
+            ]);
+            
+            DB::table('conditions')->insert([
+                'id' => 9,
+                'name' => '発信専用アカウント',
+            ]);
     }
 }
