@@ -59,7 +59,6 @@
                             </td>
                         </tr>                      
                     </table>
-                    <br><a href="{{url('/chat')}}">Chat</a>
                 </div>
             </div>
         </div>

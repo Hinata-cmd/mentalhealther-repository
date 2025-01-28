@@ -47,7 +47,7 @@
                                 <a href="/posts/{{ $post->id }}">{{ $post->body }}</a>
                             </h3>
                             <div>
-                                <img src="{{ $post->image_url }}" alt="画像が読み込めません" width='300px'>
+                                <a href="/posts/{{ $post->id }}"><img src="{{ $post->image_url }}" alt="画像が読み込めません" width='300px'></a>
                             </div>
                             <p class='created_at'>{{ $post->created_at }}</p>
                         </div>

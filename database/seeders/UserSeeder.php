@@ -25,8 +25,8 @@ class UserSeeder extends Seeder
             'email' => 'test3@gmail.com',
             'password' => Hash::make('password'), //ログイン時のパスワードは''内
             'age_id' => 1,
-            'sex' => 1,
-            'type' => 1,
+            'sex' => 0,
+            'type' => 0,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
