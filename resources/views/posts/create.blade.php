@@ -1,10 +1,4 @@
-<!DOCTYPE HTML>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>Mentalhealther/Blog</title>
-    </head>
-    <body>
+<x-app-layout>
         <h1>Blog</h1>
         <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
@@ -24,5 +18,4 @@
         <div class="footer">
             <a href="/">Back</a>
         </div>
-    </body>
-</html>
+</x-app-layout>

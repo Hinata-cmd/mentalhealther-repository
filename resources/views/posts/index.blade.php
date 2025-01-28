@@ -38,9 +38,9 @@
                             <p>
                                 {{ $post->user->name }} 
                                 @if ($post->user->type == 0)
-                                    患者側
+                                    サポーター
                                 @else ($post->user->type == 1)
-                                    サポーター側
+                                    患者
                                 @endif
                             </p>
                             <h3 class='body'>
